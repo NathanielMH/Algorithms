@@ -43,8 +43,8 @@ Complexity: O(|V|+|E|), as we can reverse the graph in linear time, use DFS to f
 
 ## FF (Ford Fulkerson)
 This is an algorithm to solve a maxflow problem, that is to maximize the amount of flow through edges whilst respecting the following constraints:
-- For every vertex except the source and sink, the flow going in is equal to the flow going out.
-- For every edge, the flow does not exceed its capacity.
+-> For every vertex except the source and sink, the flow going in is equal to the flow going out.
+-> For every edge, the flow does not exceed its capacity.
 The algorithm is based on a relaxation of the problem that gets increasingly better until it reaches the optimum.
 It can also be used to find the mincut, which is the dual problem of the maxflow.
 Complexity: Depends on the implementation, the given one is O(|V|·|E|^2) as BFS is usedn to find the path with fewest edges.
