@@ -9,9 +9,9 @@ This is the opposite of what BFS does.
 Complexity: O(|V|+|E|), each edges is visited only once.
 
 ## BFS (Breadth First Search)
-This is again a search algorithm for graphs(directed or undirected).
+This is again a search algorithm for graphs (directed or undirected).
 Applicability: None.
-Given an initial vertex, the algorithm epxlores the different paths from it in a layered search, that is it starts all possible paths and updates each path sequentially,
+Given an initial vertex, the algorithm explores the different paths from it in a layered search, that is it starts all possible paths and updates each path sequentially,
 in layers.
 Complexity: O(|V|+|E|), each edges is visited only once.
 
