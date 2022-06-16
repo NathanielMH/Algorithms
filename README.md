@@ -34,7 +34,7 @@ Given an directed acyclic graph (DAG), this algorithm finds an order of vertices
 Applicability: Graph must be a DAG.
 Complexity: O(|V|+|E|), as we use DFS and information on the order of traversal to obtain our topological sort.
 
-## SCC (Strongly connected components)
+## SCC (Strongly Connected Components)
 A strongly connected component is a subgraph where for any pair of vertices there exists a path between them.
 The goal of the algorithm is to find the amount of SCC, as well as their composition.
 Applicability: None.
