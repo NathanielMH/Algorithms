@@ -8,7 +8,7 @@ using Node = int;
 using namespace std;
 
 using Flow = vector<unordered_map<Node,int>>; //value is flow
-using adjl = list<Node>;
+using adjl = vector<Node>;
 using Graph = vector<adjl>;
 
 void read_graph(int m, Graph &G, Flow&F){
@@ -27,14 +27,14 @@ bool bfs(const Graph &G, Node src, vector<Node> &pre, Flow&f, int &mf){
     while (not s.empty()){
         int visiting = s.front();
         s.pop();
-        for (auto it = G[visiting].begin(); it != G[visiting].end(); it++)
+        for (int& v : G[visiting)
         {
-            if (f[visiting][*it]!= 0 and pre[*it]==-1)
+            if (f[visiting][v]!= 0 and pre[v]==-1)
             {
-                s.push(*it);
-                pre[*it] = visiting;
-                mf = min(mf,f[visiting][*it]);
-                if (*it == pre.size()-1) return true;
+                s.push(v);
+                pre[v] = visiting;
+                mf = min(mf,f[visiting][v]);
+                if (v == pre.size()-1) return true;
             }
         }
     }
