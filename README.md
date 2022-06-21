@@ -48,3 +48,8 @@ This is an algorithm to solve a maxflow problem, that is to maximize the amount 
 The algorithm is based on a relaxation of the problem that gets increasingly better until it reaches the optimum.
 It can also be used to find the mincut, which is the dual problem of the maxflow.
 Complexity: Depends on the implementation, the given one is O(|V|·|E|^2) as BFS is usedn to find the path with fewest edges.
+
+## Prim
+This algorithm finds a Minimum spanning tree from a weighted directed graph, that is a generating tree that minimizes the sum of weights of its edges.
+It does so by selecting at each iteration the lightest edge possible to add while preserving the tree property, thus allowing the weight to be minimal at every iteration of the tree we are building. Applicability: None. Complexity: O(|E|log|V|), as we create a priority queue to select the lightest edge and in the worst case all edges are inside, thus having |E| insertions on a queue of |E| elements. Therefore having complexity O(|E|log|E|) that simplifies to O(|E|log|V|)
+as |V|^2<=|E|.
