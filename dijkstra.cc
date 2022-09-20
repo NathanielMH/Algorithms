@@ -21,14 +21,6 @@ struct Arc
 using Node = list<Arc>;
 using Graph = vector<Node>;
 
-Arc make_arc(const int &dest, const int &cost)
-{
-    Arc v;
-    v.cost = cost;
-    v.dest = dest;
-    return v;
-}
-
 Graph build_graph(const int &n, const int &m)
 {
     Graph G(n);
@@ -36,7 +28,7 @@ Graph build_graph(const int &n, const int &m)
     for (int j = 0; j < m; j++)
     {
         cin >> u >> v >> c;
-        G[u].push_back(make_arc(v, c));
+        G[u].push_back({v,c});
     }
     return G;
 }
@@ -48,7 +40,7 @@ int dijkstra(const Graph &G, const int &start, const int &finish)
     vector<int> dist(n, INT_MAX), prev(n, -1);
     dist[start] = 0;
     priority_queue<Arc> Q;
-    Q.push(make_arc(start, 0));
+    Q.push({start,0});
     vector<bool> visited(n,false);
 
     while (not Q.empty())
@@ -66,7 +58,7 @@ int dijkstra(const Graph &G, const int &start, const int &finish)
             {
                 dist[v.dest] = dist[u] + v.cost;
                 prev[v.dest] = u;
-                Q.push(make_arc(v.dest, dist[v.dest]));
+                Q.push({v.dest, dist[v.dest]});
             }
         }
     }
