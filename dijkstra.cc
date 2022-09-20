@@ -28,10 +28,7 @@ Graph build_graph(const int &n, const int &m)
     for (int j = 0; j < m; j++)
     {
         cin >> u >> v >> c;
-        Arc p;
-        p.dest = v;
-        p.cost = c;
-        G[u].push_back(p);
+        G[u].push_back({v,c});
     }
     return G;
 }
