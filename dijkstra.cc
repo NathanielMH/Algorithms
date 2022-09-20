@@ -28,11 +28,13 @@ Graph build_graph(const int &n, const int &m)
     for (int j = 0; j < m; j++)
     {
         cin >> u >> v >> c;
-        G[u].push_back({v,c});
+        Arc p;
+        p.dest = v;
+        p.cost = c;
+        G[u].push_back(p);
     }
     return G;
 }
-
 
 int dijkstra(const Graph &G, const int &start, const int &finish)
 {
@@ -40,17 +42,12 @@ int dijkstra(const Graph &G, const int &start, const int &finish)
     vector<int> dist(n, INT_MAX), prev(n, -1);
     dist[start] = 0;
     priority_queue<Arc> Q;
-    Q.push({start,0});
-    vector<bool> visited(n,false);
+    Q.push({start, 0});
 
     while (not Q.empty())
     {
         int u = Q.top().dest;
-        if (u == finish)
-            break;
         Q.pop();
-        if (not visited[u]){
-            visited[u]=true;
         for (auto it = G[u].begin(); it != G[u].end(); it++)
         {
             Arc v = *it;
@@ -61,7 +58,6 @@ int dijkstra(const Graph &G, const int &start, const int &finish)
                 Q.push({v.dest, dist[v.dest]});
             }
         }
-    }
     }
     return dist[finish];
 }
